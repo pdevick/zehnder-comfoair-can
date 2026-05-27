@@ -55,6 +55,13 @@ button:
       - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_ACTIVATE, 60 * 60);
 
   - platform: template
+    name: 'Bypass On (4h)'
+    icon: mdi:fan-chevron-up
+    on_press:
+      - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_ACTIVATE, 4 * 60 * 60);
+
+
+  - platform: template
     name: 'Bypass Auto'
     icon: mdi:fan-auto
     on_press:
