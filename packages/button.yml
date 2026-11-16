@@ -60,6 +60,9 @@ button:
     icon: mdi:stop
     on_press:
       - lambda: id(comfoair)->set_boost(0);
+      - text_sensor.template.publish:
+          id: next_fan_change_finish_time
+          state: ""
 
   - platform: template
     name: 'Bypass On (1h)'
