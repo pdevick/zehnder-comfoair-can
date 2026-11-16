@@ -2,48 +2,56 @@ button:
   
   - platform: template
     name: 'Boost 15min'
+    id: boost_15m
     icon: mdi:fast-forward-15
     on_press:
       - lambda: id(comfoair)->set_boost(15 * 60);
   
   - platform: template
     name: 'Boost 30min'
+    id: boost_30m
     icon: mdi:fast-forward-30
     on_press:
       - lambda: id(comfoair)->set_boost(30 * 60);
   
   - platform: template
     name: 'Boost 60min'
+    id: boost_60m
     icon: mdi:fast-forward-60
     on_press:
       - lambda: id(comfoair)->set_boost(60 * 60);
 
   - platform: template
     name: 'Boost 2h'
+    id: boost_2h
     icon: mdi:numeric-2-circle
     on_press:
       - lambda: id(comfoair)->set_boost(2 * 60 * 60);
 
   - platform: template
     name: 'Boost 4h'
+    id: boost_4h
     icon: mdi:numeric-4-circle
     on_press:
       - lambda: id(comfoair)->set_boost(4 * 60 * 60);
 
   - platform: template
     name: 'Boost 8h'
+    id: boost_8h
     icon: mdi:numeric-8-circle
     on_press:
       - lambda: id(comfoair)->set_boost(8 * 60 * 60);
 
   - platform: template
     name: 'Boost 12h'
+    id: boost_12h
     icon: mdi:dice-d12
     on_press:
       - lambda: id(comfoair)->set_boost(12 * 60 * 60);
 
   - platform: template
     name: 'Boost off'
+    id: boost_off
     icon: mdi:stop
     on_press:
       - lambda: id(comfoair)->set_boost(0);
