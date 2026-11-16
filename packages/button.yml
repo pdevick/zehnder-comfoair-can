@@ -6,9 +6,11 @@ button:
     icon: mdi:fast-forward-15
     on_press:
       - lambda: id(comfoair)->set_boost(15 * 60);
-      - lambda: 
-           if (!id(ha_time).now().is_valid()) return "";
-             return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 15 * 60).strftime("%H:%M:%S");
+      - text_sensor.template.publish:
+          id: fan_change_finish_time
+          state: !lambda |-
+            if (!id(ha_time).now().is_valid()) return "";
+            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 15 * 60).strftime("%H:%M:%S");
              
   - platform: template
     name: 'Boost 30min'
