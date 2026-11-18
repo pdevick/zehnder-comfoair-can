@@ -68,6 +68,12 @@ sensor:
     on_value:
       then:
         - lambda: id(next_bypass_change_in).publish_state(id(comfoair)->seconds_to_human_readable(x));
+        - lambda: |-
+            std::string value = id(comfoair)->seconds_to_human_readable(x);
+            id(next_bypass_change_in).publish_state(value);
+            if (value == "n/a") {
+              id(next_bypass_change_finish_time).publish_state("");
+            }
 
   - platform: template
     id: exhaust_fan_duty # PDO 117
