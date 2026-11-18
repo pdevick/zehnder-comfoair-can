@@ -94,17 +94,30 @@ button:
           id: next_fan_change_finish_time
           state: ""
 
+
+
+
   - platform: template
     name: 'Bypass On (1h)'
     icon: mdi:fan-chevron-up
     on_press:
       - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_ACTIVATE, 60 * 60);
+      - text_sensor.template.publish:
+          id: next_bypass_change_finish_time
+          state: !lambda |-
+            if (!id(ha_time).now().is_valid()) return "";
+            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Bypass On (4h)'
     icon: mdi:fan-chevron-up
     on_press:
       - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_ACTIVATE, 4 * 60 * 60);
+      - text_sensor.template.publish:
+          id: next_bypass_change_finish_time
+          state: !lambda |-
+            if (!id(ha_time).now().is_valid()) return "";
+            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 4 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
 
   - platform: template
@@ -112,10 +125,18 @@ button:
     icon: mdi:fan-auto
     on_press:
       - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_AUTO, 0);
+      - text_sensor.template.publish:
+          id: next_bypass_change_finish_time
+          state: ""
       
   - platform: template
     name: 'Bypass Off (1h)'
     icon: mdi:fan-chevron-down
     on_press:
       - lambda: id(comfoair)->set_bypass_mode(zehnder_comfoair_q::BYPASS_DEACTIVATE, 60 * 60);
+      - text_sensor.template.publish:
+          id: next_bypass_change_finish_time
+          state: !lambda |-
+            if (!id(ha_time).now().is_valid()) return "";
+            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
       
