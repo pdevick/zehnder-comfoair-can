@@ -1,6 +1,11 @@
 text_sensor:
 
   - platform: template
+    id: next_fan_change_finish_time
+    name: 'Next Fan Change Finish Time'
+    icon: 'mdi:clock-end'
+
+  - platform: template
     id: fan_level # PDO 65 (raw)
     name: 'Fan Level'
     icon: mdi:fan
