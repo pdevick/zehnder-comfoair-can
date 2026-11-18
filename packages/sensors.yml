@@ -51,7 +51,11 @@ sensor:
     internal: true
     on_value:
       then:
-        - lambda: id(next_fan_change_in).publish_state(id(comfoair)->seconds_to_human_readable(x));
+        - lambda: |-
+            std::string value = id(comfoair)->seconds_to_human_readable(x);
+            id(next_fan_change_in).publish_state(value);
+            if (value == 'n/a') {
+              id().publish_state("next_fan_change_finish_time");
 
   - platform: template
     id: next_bypass_change_in_raw # PDO 82
