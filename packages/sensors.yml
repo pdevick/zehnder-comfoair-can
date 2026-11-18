@@ -55,7 +55,7 @@ sensor:
             std::string value = id(comfoair)->seconds_to_human_readable(x);
             id(next_fan_change_in).publish_state(value);
             if (value == 'n/a') {
-              id().publish_state("next_fan_change_finish_time");
+              id(next_fan_change_finish_time).publish_state("");
             }
 
   - platform: template
