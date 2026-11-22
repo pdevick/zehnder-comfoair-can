@@ -19,6 +19,7 @@ sensor:
 
   - platform: template
     id: pruttel
+    internal: true
     name: 'pruttel'
 
 
