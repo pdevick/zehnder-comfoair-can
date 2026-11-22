@@ -6,11 +6,11 @@ button:
     icon: mdi:fast-forward-15
     on_press:
       - lambda: id(comfoair)->set_boost(15 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 15 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      #- text_sensor.template.publish:
+#       #   id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 15 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
              
   - platform: template
     name: 'Boost 30min'
@@ -18,11 +18,11 @@ button:
     icon: mdi:fast-forward-30
     on_press:
       - lambda: id(comfoair)->set_boost(30 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 30 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 30 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
   
   - platform: template
     name: 'Boost 60min'
@@ -30,11 +30,11 @@ button:
     icon: mdi:fast-forward-60
     on_press:
       - lambda: id(comfoair)->set_boost(60 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Boost 2h'
@@ -42,11 +42,11 @@ button:
     icon: mdi:numeric-2-circle
     on_press:
       - lambda: id(comfoair)->set_boost(2 * 60 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 2 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 2 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Boost 4h'
@@ -54,11 +54,11 @@ button:
     icon: mdi:numeric-4-circle
     on_press:
       - lambda: id(comfoair)->set_boost(4 * 60 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 4 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 4 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Boost 8h'
@@ -66,11 +66,11 @@ button:
     icon: mdi:numeric-8-circle
     on_press:
       - lambda: id(comfoair)->set_boost(8 * 60 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 8 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 8 * 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Boost 12h'
@@ -78,11 +78,11 @@ button:
     icon: mdi:dice-d12
     on_press:
       - lambda: id(comfoair)->set_boost(12 * 60 * 60);
-      - text_sensor.template.publish:
-          id: next_fan_change_finish_time
-          state: !lambda |-
-            if (!id(ha_time).now().is_valid()) return "";
-            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 12* 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+#      - text_sensor.template.publish:
+#          id: next_fan_change_finish_time
+#          state: !lambda |-
+#            if (!id(ha_time).now().is_valid()) return "";
+#            return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 12* 60 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     name: 'Boost off'
