@@ -54,7 +54,7 @@ sensor:
         - lambda: |-
             std::string value = id(comfoair)->seconds_to_human_readable(x);
             id(next_fan_change_in).publish_state(value);
-            if (x == -1) {
+            if (value == "n/a") {
               id(next_fan_change_finish_time).publish_state("");
             }
         - text_sensor.template.publish:
