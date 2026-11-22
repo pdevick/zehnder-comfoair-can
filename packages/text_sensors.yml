@@ -60,7 +60,7 @@ text_sensor:
                   id: next_fan_change_finish_time
                   state: !lambda |-
                     if (!id(ha_time).now().is_valid()) return "";
-                    return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 30 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
+                    return ESPTime::from_epoch_local(id(ha_time).now().timestamp + (id(next_fan_change_in_raw ).state)).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     id: supply_fan_mode # PDO 54
