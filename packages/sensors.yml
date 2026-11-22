@@ -67,8 +67,12 @@ sensor:
               id(next_fan_change_finish_time).publish_state("");
             }
 
-            std::string finish_time = ESPTime::from_epoch_local(id(ha_time).now().timestamp + x).strftime("%Y-%m-%dT%H:%M:%S");
-            id(next_fan_change_finish_time).publish_state(finish_time);
+            if (x != 'n/a') {
+              std::string finish_time = ESPTime::from_epoch_local(id(ha_time).now().timestamp + x).strftime("%Y-%m-%dT%H:%M:%S");
+              id(next_fan_change_finish_time).publish_state(finish_time);
+            }
+
+            
 
 
   - platform: template
