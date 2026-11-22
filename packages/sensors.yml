@@ -18,12 +18,6 @@
 sensor:
 
   - platform: template
-    id: pruttel
-    internal: true
-    name: 'pruttel'
-
-
-  - platform: template
     id: away_indicator_raw # PDO 16
     name: 'away_indicator_raw'
     accuracy_decimals: 0
