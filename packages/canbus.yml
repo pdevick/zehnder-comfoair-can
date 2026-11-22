@@ -79,6 +79,6 @@ canbus:
                 comfoair_on_frame_case(292, id(comfoair), outdoor_air_humidity,              true);
                 comfoair_on_frame_case(293, id(comfoair), pre_heater_humidity_after,         true);
                 comfoair_on_frame_case(294, id(comfoair), supply_air_humidity,               true);
-                comfoair_on_frame_case(402, id(comfoair), pruttel,                           false);
+                comfoair_on_frame_case(1024, id(comfoair), pruttel,                           false);
                 
             }
