@@ -54,10 +54,6 @@ sensor:
         - lambda: |-
             std::string value = id(comfoair)->seconds_to_human_readable(x);
             id(next_fan_change_in).publish_state(value);
-            
-            if (value == "n/a") {
-              id(next_fan_change_finish_time).publish_state("");
-            }
 
             if (!id(ha_time).now().is_valid()){
               id(next_fan_change_finish_time).publish_state("");
@@ -70,6 +66,9 @@ sensor:
             if (x > -1) {
               std::string finish_time = ESPTime::from_epoch_local(id(ha_time).now().timestamp + x).strftime("%Y-%m-%dT%H:%M:%S");
               id(next_fan_change_finish_time).publish_state(finish_time);
+            } 
+            else {
+              id(next_fan_change_finish_time).publish_state("");
             }
 
             
