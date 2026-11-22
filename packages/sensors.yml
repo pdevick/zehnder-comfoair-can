@@ -57,11 +57,11 @@ sensor:
             if (value == "n/a") {
               id(next_fan_change_finish_time).publish_state("");
             }
-#        - text_sensor.template.publish:
-#            id: next_fan_change_in_time
-#            state: !lamda |-
-#              if (!id(ha_time).now().is_valid()) return "";
-#              return ESPTime::from_epoch_local(id(ha_time).now().timestamp + (id(next_fan_change_in_raw).state)).strftime("%Y-%m-%dT%H:%M:%S%z");
+        - text_sensor.template.publish:
+            id: next_fan_change_in_time
+            state: !lamda |-
+              if (!id(ha_time).now().is_valid()) return "";
+              return ESPTime::from_epoch_local(id(ha_time).now().timestamp + (id(next_fan_change_in_raw).state)).strftime("%Y-%m-%dT%H:%M:%S%z");
 
 
 
