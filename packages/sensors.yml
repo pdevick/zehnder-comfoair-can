@@ -48,7 +48,7 @@ sensor:
     accuracy_decimals: 0
     device_class: duration
     unit_of_measurement: 's'
-    internal: true
+    internal: false
     on_value:
       then:
         - lambda: |-
