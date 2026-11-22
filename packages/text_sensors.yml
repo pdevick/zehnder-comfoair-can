@@ -52,6 +52,15 @@ text_sensor:
               - switch.template.publish:
                   id: auto_ventilation
                   state: OFF
+        - if:
+            condition:
+              lambda: 'return x == "Boost (RF)";'
+            then:
+              - text_sensor.template.publish:
+                  id: next_fan_change_finish_time
+                  state: !lambda |-
+                    if (!id(ha_time).now().is_valid()) return "";
+                    return ESPTime::from_epoch_local(id(ha_time).now().timestamp + 30 * 60).strftime("%Y-%m-%dT%H:%M:%S%z");
 
   - platform: template
     id: supply_fan_mode # PDO 54
